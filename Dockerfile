@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM alpine
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
