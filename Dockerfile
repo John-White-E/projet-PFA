@@ -1,8 +1,8 @@
-FROM debian
+FROM node:buster
 ENV PYTHONUNBUFFERED=1
 RUN apt update
 RUN yes | apt install python3
-RUN yes | apt install pip
+RUN apt -y install python3-pip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
 RUN pip install sklearn collection webcolors opencv-python
