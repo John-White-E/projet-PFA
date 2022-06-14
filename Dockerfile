@@ -1,5 +1,5 @@
 FROM node:buster
-ENV PYTHONUNBUFFERED=1
+
 RUN apt update
 RUN yes | apt install python3
 RUN apt -y install python3-pip
