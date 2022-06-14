@@ -1,12 +1,12 @@
-FROM alpine
+FROM debian
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
+RUN apt update
+RUN yes | apt install python3
+RUN yes | apt install pip
 RUN pip3 install --no-cache --upgrade pip setuptools
-RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-RUN apk add --update --no-cache py3-numpy py3-pandas@testing
-ENV PYTHONPATH=/usr/lib/python3.8/site-packages
-RUN pip install scikit-image pandas numpy sklearn collection webcolors opencv-python
+
+RUN pip install sklearn collection webcolors opencv-python
+RUN pip install scikit-image pandas numpy
 
 WORKDIR /app
 COPY ./ .
